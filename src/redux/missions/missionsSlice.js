@@ -16,6 +16,7 @@ export const missionsSlice = createSlice({
         object.mission_name = item.mission_name;
         object.description = item.description;
         object.wikipedia = item.wikipedia;
+        object.reserved = false;
         return object;
       });
       state.value = data;
