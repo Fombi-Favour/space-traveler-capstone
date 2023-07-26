@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setupRocket, selectRocket } from '../redux/rockets/rocketsSlice';
+import styles from '../styles/Rockets.module.css';
 
 const Rockets = () => {
   const { status, value } = useSelector(selectRocket);
@@ -32,27 +33,26 @@ const Rockets = () => {
   }
 
   return (
-    <main className="py-4 px-[6rem]">
+    <section>
       {value.map((item) => (
-        <div key={item.id} className="flex gap-5 mx-0 my-4">
-          <div>
-            <img src={item.flickr_images} alt={item.rocket_name} className="w-[24rem] h-[16rem]" />
+        <main key={item.id}>
+          <div className={styles.pics}>
+            <img src={item.flickr_images} alt={item.rocket_name} />
           </div>
-          <div className="flex flex-col items-start gap-5">
-            <div className="flex gap-[20rem]">
-              <h3>{item.rocket_name}</h3>
-              <h4>
+          <div className={styles.contents}>
+            <div className={styles.text}>
+              <h3 className="text-2xl font-bold">{item.rocket_name}</h3>
+              <h4 className="font-semibold capitalize">
                 Type:
-
                 {item.rocket_type}
               </h4>
             </div>
             <span>{item.description}</span>
-            <button type="button">Reserve Rocket</button>
+            <button type="button" className={styles.reserve}>Reserve Rocket</button>
           </div>
-        </div>
+        </main>
       ))}
-    </main>
+    </section>
   );
 };
 
