@@ -6,7 +6,7 @@ import styles from '../styles/Rockets.module.css';
 import RocketComponent from '../components/RocketComponent';
 
 const Rockets = () => {
-  const { status, value } = useSelector(selectRocket);
+  const { status, content } = useSelector(selectRocket);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,8 +23,8 @@ const Rockets = () => {
         })
         .catch((err) => err.message);
     };
-    if (value.length === 0) fetchRocket();
-  }, [dispatch, value.length]);
+    if (content.length === 0) fetchRocket();
+  }, [dispatch, content.length]);
 
   if (status === 'loading') {
     return (
@@ -36,7 +36,7 @@ const Rockets = () => {
 
   return (
     <section>
-      {value.map((item) => (
+      {content.map((item) => (
         <main key={item.id}>
           <div className={styles.pics}>
             <img src={item.flickr_images} alt={item.rocket_name} />
