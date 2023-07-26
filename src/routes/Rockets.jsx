@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setupRocket, selectRocket } from '../redux/rockets/rocketsSlice';
 import styles from '../styles/Rockets.module.css';
+// eslint-disable-next-line import/no-named-as-default
+import RocketComponent from '../components/RocketComponent';
 
 const Rockets = () => {
   const { status, value } = useSelector(selectRocket);
@@ -47,8 +49,11 @@ const Rockets = () => {
                 {item.rocket_type}
               </h4>
             </div>
-            <span>{item.description}</span>
-            <button type="button" className={styles.reserve}>Reserve Rocket</button>
+            <div>
+              <RocketComponent status={item.reserved} type="badge" id={item.id} />
+              <span>{item.description}</span>
+            </div>
+            <RocketComponent status={item.reserved} type="button" id={item.id} />
           </div>
         </main>
       ))}
