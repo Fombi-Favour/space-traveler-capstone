@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: '',
+  content: '',
   status: 'loading',
 };
 
@@ -21,11 +21,11 @@ const rocketsSlice = createSlice({
         object.reserved = false;
         return object;
       });
-      state.value = data;
+      state.content = data;
       state.status = 'completed';
     },
     reservedRocket: (state, action) => {
-      state.value = state.value.map((rockets) => {
+      state.content = state.content.map((rockets) => {
         if (rockets.id !== action.payload) return rockets;
         return { ...rockets, reserved: !rockets.reserved };
       });
