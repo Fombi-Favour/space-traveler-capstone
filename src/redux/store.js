@@ -7,4 +7,13 @@ const store = configureStore({
   },
 });
 
+export function createTestStore() {
+  const store = configureStore({
+    reducer: {
+      mission: missionReducer,
+    },
+  });
+  return store;
+}
+
 export default store;
