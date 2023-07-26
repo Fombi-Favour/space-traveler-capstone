@@ -1,0 +1,36 @@
+section {
+  padding: 14px 6rem;
+}
+
+main {
+  margin: 12px 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.pics img {
+  min-width: 24rem;
+  height: 16rem;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.text {
+  display: flex;
+  gap: 20rem;
+}
+
+.reserve {
+  border: none;
+  width: 10rem;
+  height: 40px;
+  background: #051cf1;
+  color: #fff;
+  font-size: 0.813rem;
+  letter-spacing: 0.052rem;
+}
