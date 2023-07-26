@@ -7,7 +7,8 @@ const Navbar = () => (
       <div className="text-2xl flex gap-2 items-center">
         <img
           alt="logo"
-          src="https://github.com/batoolfatima2135/Space/blob/dev/src/logo/logo.PNG?raw=true"
+          src="https://github.com/SAZZAD1Q2/Space-Hub/blob/dev/src/Logo/logo.PNG?raw=true"
+          className="w-24 h-24"
         />
         Space Traveler&apos;s Hub
       </div>
