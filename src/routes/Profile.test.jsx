@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import Profile from './Profile';
 
 const mockStore = configureStore([]);
-const dummyData = [
+const dummyMissionData = [
   {
     mission_id: '1',
     mission_name: 'Test Mission 1',
@@ -32,13 +32,40 @@ const dummyData = [
   },
 ];
 
+const dummyRocketData = [
+  {
+    id: '1',
+    rocket_name: 'Test Rocket 1',
+    reserved: false,
+  },
+  {
+    id: '2',
+    rocket_name: 'Test Rocket 2',
+    reserved: false,
+  },
+  {
+    id: '3',
+    rocket_name: 'Test Rocket 3 is my Rocket',
+    reserved: true,
+  },
+  {
+    id: '4',
+    rocket_name: 'Test Rocket 4',
+    reserved: false,
+  },
+];
+
 describe('Profile component', () => {
   let store;
 
   beforeEach(() => {
     store = mockStore({
       mission: {
-        value: dummyData,
+        value: dummyMissionData,
+        status: 'completed',
+      },
+      rocket: {
+        content: dummyRocketData,
         status: 'completed',
       },
     });
@@ -51,7 +78,7 @@ describe('Profile component', () => {
       </Provider>,
     );
 
-    const myMission = getByTestId('3');
+    const myMission = getByTestId('mission-3');
 
     expect(myMission).toHaveTextContent('Test Mission 3 is my mission');
   });

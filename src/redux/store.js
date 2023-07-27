@@ -13,6 +13,7 @@ export function createTestStore() {
   const store = configureStore({
     reducer: {
       mission: missionReducer,
+      rocket: RocketReducer,
     },
   });
   return store;

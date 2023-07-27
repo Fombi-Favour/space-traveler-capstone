@@ -42,7 +42,7 @@ const RocketComponent = ({ type, status, id }) => {
 RocketComponent.propTypes = {
   type: PropTypes.string.isRequired,
   status: PropTypes.bool.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default RocketComponent;

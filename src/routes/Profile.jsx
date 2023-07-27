@@ -29,7 +29,8 @@ const Profile = () => {
               {data.length > 0 ? (
                 data.map((item) => (
                   <div
-                    key={item.mission_id} data-testid={item.mission_id}
+                    key={item.mission_id}
+                    data-testid={`mission-${item.mission_id}`}
                     className="w-full flex items-center justify-between py-3 border-2 border-slate-200 text-left px-4 first:rounded-t-xl last:rounded-b-xl"
                   >
                     {item.mission_name}
@@ -50,6 +51,7 @@ const Profile = () => {
                 rocketData.map((item) => (
                   <div
                     key={item.id}
+                    data-testid={`rocket-${item.id}`}
                     className="w-full flex items-center justify-between py-3 border-2 border-slate-200 text-left px-4 first:rounded-t-xl last:rounded-b-xl"
                   >
                     {item.rocket_name}
