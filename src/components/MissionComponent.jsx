@@ -9,6 +9,7 @@ const MissionComponent = ({ type, status, itemId }) => {
   if (type === 'button') {
     return (
       <button
+        data-testid={`button${itemId}`}
         onClick={() => {
           dispatch(reservedMission(itemId));
         }}
@@ -28,6 +29,7 @@ const MissionComponent = ({ type, status, itemId }) => {
   if (type === 'badge') {
     return (
       <div
+        data-testid={`badge${itemId}`}
         className={`px-2 py-1 m-1 text-white rounded-lg transition-all ${
           status
             ? 'bg-cyan-400 text-sm text-center'

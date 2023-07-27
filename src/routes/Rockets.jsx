@@ -43,7 +43,7 @@ const Rockets = () => {
           </div>
           <div className={styles.contents}>
             <div className={styles.text}>
-              <h3 className="text-2xl font-bold">{item.rocket_name}</h3>
+              <h3 data-testid={item.id} className="text-2xl font-bold">{item.rocket_name}</h3>
               <h4 className="font-semibold capitalize">
                 Type:
                 {item.rocket_type}

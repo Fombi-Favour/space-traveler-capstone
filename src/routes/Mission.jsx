@@ -59,7 +59,7 @@ const Mission = () => {
                 className="odd:bg-white even:bg-zinc-100"
                 key={item.mission_id}
               >
-                <td className="px-2 py-1 text-left border-2 border-slate-200">
+                <td data-testid={item.mission_id} className="px-2 py-1 text-left border-2 border-slate-200">
                   {item.mission_name}
                 </td>
                 <td className="px-2 py-1 text-left border-2 border-slate-200">
