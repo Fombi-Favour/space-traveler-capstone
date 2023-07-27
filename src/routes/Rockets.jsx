@@ -28,8 +28,9 @@ const Rockets = () => {
 
   if (status === 'loading') {
     return (
-      <div className="flex justify-center">
-        <div className="flex justify-center">Loading...</div>
+      <div className="flex items-center justify-center mt-40 gap-3">
+        <div className="border-8 border-[#a8a8a8] border-t-[#051cf1] w-20 h-20 text-transparent rounded-full animate-spin">100%</div>
+        <h2 className="text-4xl text-[#051cf1]">Loading...</h2>
       </div>
     );
   }
