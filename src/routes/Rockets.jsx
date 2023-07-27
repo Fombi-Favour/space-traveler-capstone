@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setupRocket, selectRocket } from '../redux/rockets/rocketsSlice';
 import styles from '../styles/Rockets.module.css';
+// eslint-disable-next-line import/no-named-as-default
+import RocketComponent from '../components/RocketComponent';
 
 const Rockets = () => {
-  const { status, value } = useSelector(selectRocket);
+  const { status, content } = useSelector(selectRocket);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,8 +23,8 @@ const Rockets = () => {
         })
         .catch((err) => err.message);
     };
-    if (value.length === 0) fetchRocket();
-  }, [dispatch, value.length]);
+    if (content.length === 0) fetchRocket();
+  }, [dispatch, content.length]);
 
   if (status === 'loading') {
     return (
@@ -34,7 +36,7 @@ const Rockets = () => {
 
   return (
     <section>
-      {value.map((item) => (
+      {content.map((item) => (
         <main key={item.id}>
           <div className={styles.pics}>
             <img src={item.flickr_images} alt={item.rocket_name} />
@@ -47,8 +49,11 @@ const Rockets = () => {
                 {item.rocket_type}
               </h4>
             </div>
-            <span>{item.description}</span>
-            <button type="button" className={styles.reserve}>Reserve Rocket</button>
+            <div>
+              <RocketComponent status={item.reserved} type="badge" id={item.id} />
+              <span>{item.description}</span>
+            </div>
+            <RocketComponent status={item.reserved} type="button" id={item.id} />
           </div>
         </main>
       ))}
